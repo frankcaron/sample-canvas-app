@@ -9,15 +9,38 @@
             img {
                 width: 100%;
             }
+            #full-banner {
+                width: 100%;
+                padding: 5px;
+                margin: 0px;
+                height: 16px;
+                text-align: center;
+                font-size: 12px;
+                font-weight: bolder;
+                background-color: #ffaa99;
+                font-family: Arial;
+                vertical-align: middle;
+            }
+            #full-banner p {
+                padding: 0px;
+                margin: auto;
+            }
         </style>
         <script type="text/javascript" src="https://ecobeeca-demo.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
 
     </head>
     <body>
 
-        <% var username = context['context']['user']['userName'] %>
+        <% 
+            var user = "No user";
+            if (context != "") { 
+                var user = context['context']['user']['userName'];
+            }
+        %>
 
-        <img id="ctx" src="<%= url %>" alt="<%= username %>" />
+        <div id="full-banner"><p>You're logged into Admin Portal as <%= user %>.</p></div>
+
+        <img id="ctx" src="<%= url %>" />
 
         <script>
             console.log("SFDC Raw Context: <%= context %>");

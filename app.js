@@ -43,8 +43,7 @@ app.post('/canvas-demo/', function (req, res) {
     //Decode context
     body = JSON.stringify(req.body); 
     data = JSON.stringify(res.data);
-
-    console.log(body);
+    
     signed_request = JSON.parse(body)['signed_request']
 
     var json = decode(signed_request, process.env.CANVAS_CONSUMER_SECRET);
