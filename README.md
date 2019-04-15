@@ -27,6 +27,11 @@ The code for the Aura component is super simple:
                         developerName="your-api-name-for-connected-app-here"/>
 </aura:component>
 ```
+# One-Click Deploy
+
+You know how we do.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 # Etc.
 
