@@ -36,7 +36,7 @@ app.post('/canvas-demo/', function (req, res) {
   var hash = CryptoJS.HmacSHA256(context, consumerSecret);
   var b64Hash = CryptoJS.enc.Base64.stringify(hash);
   if (hashedContext === b64Hash) {
-    res.render('content/index.html', { req: req.body, res: res.data });
+    res.render('index', { req: req.body, res: res.data });
  } else {
     res.send("Canvas authentication failed");
   };
