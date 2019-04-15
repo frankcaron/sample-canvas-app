@@ -6,7 +6,7 @@ CryptoJS = require("crypto-js");
 const path = require('path');
 
 //Content
-app.use('/content', express.static(path.join(__dirname, 'content')))
+app.use('/views', express.static(path.join(__dirname, 'views')))
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ entended: true }));
@@ -19,13 +19,13 @@ var consumerSecret = process.env.CANVAS_CONSUMER_SECRET;
 
 //Define request response in root URL (/)
 app.get('/', function (req, res) {
-  res.json({'context': 'Welcome to the Miner Consumer Site back-end API. Please refer to the links for further calls.','links': [{'name': 'users', 'href': '/canvas-demo/'}] });
+  res.json({'context': 'Welcome to the Sample Canvas back-end API. Please refer to the links for further calls.','links': [{'name': 'canvas-demo', 'href': '/canvas-demo/'}] });
   res.end();
 })
 
 //Return for the fixed page 
 app.get('/canvas-demo/',function(req,res) {
-  res.render('content/index.html');
+  res.render('index');
 });
 
 //Signed request for canvas app
