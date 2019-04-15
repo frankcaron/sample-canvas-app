@@ -11,7 +11,8 @@ function decode(signed_request, secret) {
         sig = encoded_data[0];
         json = base64url.decode(encoded_data[1]);
         data = JSON.parse(json);
-        console.log(data);
+        console.log('Data: ' + data);
+        console.log('Sig: ' + sig)
     } catch (e) {
         return new Error('Could not parse signed-request');
     }
