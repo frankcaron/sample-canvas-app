@@ -46,7 +46,7 @@ app.post('/canvas-demo/', function (req, res) {
 
     console.log(body);
 
-    var json = decode(body, process.env.CANVAS_CONSUMER_SECRET);
+    var json = decode(body[0], process.env.CANVAS_CONSUMER_SECRET);
 
     //Render and pass
     res.render('index', { context: json, url: process.env.IMAGE_URL });
