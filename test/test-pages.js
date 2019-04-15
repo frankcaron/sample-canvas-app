@@ -1,6 +1,11 @@
-var expect  = require('chai').expect;
-var request = require('request');
+// Import the dependencies for testing
+let chai = require('chai');
+let chaiHttp = require('chai-http');
+let server = require('../app');
+let should = chai.should();
 
+
+// get Heroku port magic
 var port = process.env.PORT || process.argv[2] || 8080;
 var path = '';
 
@@ -10,10 +15,19 @@ if (process.env.NODE_ENV === 'production') {
     path = 'http://localhost:' + port;
 }
 
-it('Main page status', function(done) {
-    console.log(path);
-    request(path, function(error, response, body) {
-        expect(response.statusCode).to.equal(200);
-        done();
+// Set up
+chai.use(chaiHttp);
+
+// Tests
+describe("Main app", () => {
+    describe("GET /", () => {
+        it("should return our API directory successfully", (done) => {
+            chai.request(server)
+                .get('/')
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
+        });
     });
 });

@@ -47,3 +47,6 @@ app.post('/canvas-demo/', function (req, res) {
 app.listen(port, function () {
   console.log('App listening as would be expected!')
 })
+
+//Export for tests
+module.exports = app;
