@@ -20,26 +20,23 @@
 
     </head>
     <body>
-        <img src="<%= url %>" />
+        <img id="ctx" src="<%= url %>" />
 
-
+        <!-- Canvas context -->
         <script>
             function callback(msg) {
                 if (msg.status !== 200) {
-                    alert("Error: " + msg.status);
+                    console.log("Salesforce Canvas load error: " + msg.status);
                     return;
                 }
-                alert("Payload: ", msg.payload);
+                console.log("Salesforce Canvas Payload: ", msg.payload);
             }
                         
-            var ctxlink = Sfdc.canvas.byId("ctxlink");
+            var ctxlink = Sfdc.canvas.byId("ctx");
             var client = Sfdc.canvas.oauth.client();
-            ctxlink.onclick=function() {
-                Sfdc.canvas.client.ctx(callback, client);
-            }
+            Sfdc.canvas.client.ctx(callback, client);
+
         </script>
-            
-        <a id="ctxlink" href="#">Get Context</a>
 
     </body>
 </html>
