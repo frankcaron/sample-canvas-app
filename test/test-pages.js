@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 it('Main page status', function(done) {
+    console.log(path);
     request(path, function(error, response, body) {
         expect(response.statusCode).to.equal(200);
         done();
