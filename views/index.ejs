@@ -1,8 +1,7 @@
 
 
 <% var string = "Hello"; %>
-<script>console.log("<%= string %>");</script>
-
+<!-- Page -->
 <html>
     <head>
         <style> 
@@ -14,8 +13,33 @@
                 width: 100%;
             }
         </style>
+
+        <script>console.log("<%= string %>");</script>
+        <script type="text/javascript" src="https://ecobeeca-demo.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
+    
+
     </head>
     <body>
         <img src="<%= url %>" />
+
+
+        <script>
+            function callback(msg) {
+                if (msg.status !== 200) {
+                    alert("Error: " + msg.status);
+                    return;
+                }
+                alert("Payload: ", msg.payload);
+            }
+                        
+            var ctxlink = Sfdc.canvas.byId("ctxlink");
+            var client = Sfdc.canvas.oauth.client();
+            ctxlink.onclick=function() {
+                Sfdc.canvas.client.ctx(callback, client);
+            }
+        </script>
+            
+        <a id="ctxlink" href="#">Get Context</a>
+
     </body>
 </html>
