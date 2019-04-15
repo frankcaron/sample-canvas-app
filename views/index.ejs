@@ -1,6 +1,10 @@
 
 
-<% var string = "Hello"; %>
+<% 
+
+var string = "Hello"; 
+
+%>
 <!-- Page -->
 <html>
     <head>
@@ -23,8 +27,8 @@
         <img id="ctx" src="<%= url %>" />
 
         <script>
-            console.log("SFDC Req: <%= req %>");
-            console.log("SFDC Res: <%= res %>");
+            console.log("SFDC Req: <%= JSON.stringify(req) %>");
+            console.log("SFDC Res: <%= JSON.stringify(res) %>");
         </script>
 
         <!-- Canvas context -->

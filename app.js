@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 
 //Return for the fixed page 
 app.get('/canvas-demo/',function(req,res) {
-  res.render('index', {url: process.env.IMAGE_URL});
+  res.render('index', { req: null, res: null, url: process.env.IMAGE_URL});
 });
 
 //Signed request for canvas app
