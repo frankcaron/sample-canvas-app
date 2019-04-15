@@ -23,6 +23,8 @@ function decode(signed_request, secret) {
     }
 
     expected_sig = crypto.createHmac('sha256', secret).update(encoded_data[1]).digest('base64');
+    console.log('Expected Sig: ' + expected_sig)
+
     if (sig !== expected_sig) {
         return new Error('Bad signed JSON Signature!');
     }
