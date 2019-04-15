@@ -44,6 +44,8 @@ app.post('/canvas-demo/', function (req, res) {
     body = JSON.stringify(req.body); 
     data = JSON.stringify(res.data);
 
+    console.log(body);
+
     var json = decode(body, process.env.CANVAS_CONSUMER_SECRET);
 
     //Render and pass
