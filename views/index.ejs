@@ -22,6 +22,11 @@
     <body>
         <img id="ctx" src="<%= url %>" />
 
+        <script>
+            console.log("SFDC Req: <%= req %>");
+            console.log("SFDC Res: <%= res %>");
+        </script>
+
         <!-- Canvas context -->
         <script>
             function callback(msg) {
