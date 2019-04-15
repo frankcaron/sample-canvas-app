@@ -4,7 +4,7 @@
   "description": "Frank's Canvas sample app",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "crypto-js": "^3.1.6",
     "ejs": "^2.5",
     "express": "^4.16.4",
-    "pg": "^7.8.1"
+    "pg": "^7.8.1",
+    "supertest": "^4.0.2"
   }
 }

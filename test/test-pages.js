@@ -1,9 +1,8 @@
 // Import the dependencies for testing
 let chai = require('chai');
 let chaiHttp = require('chai-http');
-let server = require('../app');
 let should = chai.should();
-
+let server = require('../app');
 
 // get Heroku port magic
 var port = process.env.PORT || process.argv[2] || 8080;
