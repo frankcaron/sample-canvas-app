@@ -2,7 +2,7 @@
 var express = require('express')
 var app = express()
 const path = require('path');
-app.use(express.static('content'))
+app.use('/content', express.static(path.join(__dirname, 'content')))
 
 //Helpers
  
@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
   res.end();
 })
 
-//Return for the fixed page
+//Return for the fixed page 
 app.get('/canvas-demo/',function(req,res) {
   res.sendFile(path.join(__dirname+'/content/index.html'));
 });
