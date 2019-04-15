@@ -2,6 +2,12 @@
 
 This small sample Heroku app has been created to demonstrate the power of using Salesforce Canvas for integrating an external web application into a Salesforce app running on the Lightning Platform.
 
+In this generic example, the small Heroku-hosted app actually does something super cheeky but also super useful when setting up a functional demo. Rather than relying on a whole bunch of custom code to represent the "app", this particular app loads a full-page screenshot. In addition, it displays a small banner above the picture with details from the Salesforce account accessing the canvas.
+
+The idea here is to show how a very specific existing portal or app could be loaded in and how Salesforce Canvas allows you to pass details from the Salesforce Canvas embedded context to the app, while showing the folks being demo'd to a specific app they care about but without having to do all the work to rebuild their specific app from scratch.
+
+Blah. I know that's a terrible explanation, but I'm tired and debugging took a long time, haha. I'll fix it at somepoint.
+
 # Prereqs
 
 In order to use this app, you'll need to ensure that you have...
