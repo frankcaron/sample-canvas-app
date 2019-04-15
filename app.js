@@ -5,6 +5,9 @@ bodyParser = require('body-parser'),
 CryptoJS = require("crypto-js");
 const path = require('path');
 
+//Get the signed request parser
+var decode = require('./parse-signed-request.js');
+
 //Content
 app.use('/views', express.static(path.join(__dirname, 'views')))
 app.set('view engine', 'ejs');
@@ -25,7 +28,7 @@ app.get('/', function (req, res) {
 
 //Return for the fixed page 
 app.get('/canvas-demo/',function(req,res) {
-  res.render('index', { req: null, res: null, url: process.env.IMAGE_URL});
+  res.render('index', { context: "", url: process.env.IMAGE_URL});
 });
 
 //Signed request for canvas app
@@ -36,7 +39,15 @@ app.post('/canvas-demo/', function (req, res) {
   var hash = CryptoJS.HmacSHA256(context, consumerSecret);
   var b64Hash = CryptoJS.enc.Base64.stringify(hash);
   if (hashedContext === b64Hash) {
-    res.render('index', { req: req.body, res: res.data, url: process.env.IMAGE_URL });
+
+    //Decode context
+    body = JSON.stringify(req.body); 
+    data = JSON.stringify(res.data);
+
+    var json = decode(body, process.env.CANVAS_CONSUMER_SECRET);
+
+    //Render and pass
+    res.render('index', { context: json, url: process.env.IMAGE_URL });
  } else {
     res.send("Canvas authentication failed");
   };

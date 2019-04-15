@@ -1,10 +1,6 @@
 
 
-<% 
-
-var string = "Hello"; 
-
-%>
+<% var string = "Hello"; %>
 <!-- Page -->
 <html>
     <head>
@@ -27,23 +23,7 @@ var string = "Hello";
         <img id="ctx" src="<%= url %>" />
 
         <script>
-            console.log("SFDC Req: <%= JSON.stringify(req) %>");
-            console.log("SFDC Res: <%= JSON.stringify(res) %>");
-        </script>
-
-        <!-- Canvas context -->
-        <script>
-            function callback(msg) {
-                if (msg.status !== 200) {
-                    console.log("Salesforce Canvas load error: " + msg.status);
-                    return;
-                }
-                console.log("Salesforce Canvas Payload: ", msg.payload);
-            }
-                        
-            var ctxlink = Sfdc.canvas.byId("ctx");
-            var client = Sfdc.canvas.oauth.client();
-            Sfdc.canvas.client.ctx(callback, client);
+            console.log("SFDC Raw Context: <%= context %>");
 
         </script>
 
