@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 
 //Return for the fixed page 
 app.get('/canvas-demo/',function(req,res) {
-  res.render('index');
+  res.render('index', {url: process.env.IMAGE_URL});
 });
 
 //Signed request for canvas app
@@ -36,7 +36,7 @@ app.post('/canvas-demo/', function (req, res) {
   var hash = CryptoJS.HmacSHA256(context, consumerSecret);
   var b64Hash = CryptoJS.enc.Base64.stringify(hash);
   if (hashedContext === b64Hash) {
-    res.render('index', { req: req.body, res: res.data });
+    res.render('index', { req: req.body, res: res.data, url: process.env.IMAGE_URL });
  } else {
     res.send("Canvas authentication failed");
   };
