@@ -18,6 +18,12 @@ In order to use this app, you'll need to ensure that you have...
 
 # Setup
 
+## Configure Salesforce
+
+First, you'll need to create a Connected App inside of Salesforce. When you're setting up your connected app, be sure to enable OAuth. The endpoint for auth is `https://yourapp.herokuapp.com/canvas-demo/`. You'll need the Consumer Secret that is generated after your connected app is provisioned. 
+
+## Configure your Heroku app
+
 You will need the following environment variables defined in Heroku or your app platform of choice:
 
 * CANVAS_CONSUMER_SECRET -> The consumer secret defined when setting up a Connected App inside of Salesforce
@@ -25,16 +31,19 @@ You will need the following environment variables defined in Heroku or your app 
 
 You'll also need to change the Javascript file in the view `index.ejs` to your Canvas JS file. More information can be found [here](https://developer.salesforce.com/docs/atlas.en-us.platform_connect.meta/platform_connect/canvas_framework_referencing_sdk.html).
 
-# Aura Component Setup
+## Set Up Your Aura Component
 
 The code for the Aura component is super simple:
 
 ```
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes">  
+<aura:component implements="force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global">  
     <force:canvasApp width="100%" maxWidth="infinite" height="700px" maxHeight="infinite"
                         developerName="your-api-name-for-connected-app-here"/>
 </aura:component>
 ```
+
+Create the component and deploy it on the desired page. The above will work both inside the Salesforce platform and in a Lightning Community.
+
 # One-Click Deploy
 
 You know how we do.
