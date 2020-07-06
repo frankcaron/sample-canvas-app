@@ -29,7 +29,7 @@ You will need the following environment variables defined in Heroku or your app 
 * CANVAS_CONSUMER_SECRET -> The consumer secret defined when setting up a Connected App inside of Salesforce
 * IMAGE_URL -> The full public URL path to the image you want to load up as your "example" website.
 
-You'll also need to change the Javascript file in the view `index.ejs` to your Canvas JS file. More information can be found [here](https://developer.salesforce.com/docs/atlas.en-us.platform_connect.meta/platform_connect/canvas_framework_referencing_sdk.html).
+You'll also need to change the Javascript file in the view `index.ejs` to your Canvas JS file. More information can be found [here](https://developer.salesforce.com/docs/atlas.en-us.platform_connect.meta/platform_connect/canvas_framework_referencing_sdk.htm).
 
 ## Set Up Your Aura Component
 
